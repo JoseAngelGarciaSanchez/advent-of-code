@@ -1,6 +1,3 @@
-"""
-This is the solution of the first day of advent of code
-"""
 import os
 import re
 
@@ -20,7 +17,7 @@ number_list = [
 
 def number_extraction(file_path: str | os.PathLike) -> int:
     """
-    First part of the day 1, 2023 AoC :)
+    Solution of the day 1, 2023 AoC :)
 
     Extract and compute the sum of all numbers in a string.
     For the first part, only digits. For the second part
