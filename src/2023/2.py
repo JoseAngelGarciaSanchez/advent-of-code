@@ -3,6 +3,12 @@ import re
 
 
 def possibles_games(input_path: str | os.PathLike) -> list[int]:
+    """
+    AoC day 2, 2023
+    ---------------
+    Searching possible games that correspond to a condition
+    Compute the sum of the game numbers and the sum of the power
+    """
     with open(input_path, "r") as file:
         games = file.readlines()
 
@@ -19,12 +25,12 @@ def possibles_games(input_path: str | os.PathLike) -> list[int]:
 
     for game_analyse in analysed_games:
         if game_analyse["possible"]:
-            number_str = re.findall(r"\d+", game["number"])
+            number_str = re.findall(r"\d+", game_analyse["game_number"])
             total_sum += int(number_str[0])
 
     total_power = 0
-    for game in games:
-        total_power += game["power"]
+    for game_analyse in analysed_games:
+        total_power += game_analyse["power"]
 
     return total_sum, total_power
 
@@ -83,3 +89,10 @@ def _analyse_game(game):
     game_dict["power"] = min_required_blue * min_required_green * min_required_red
 
     return game_dict
+
+
+if __name__ == "__main__":
+    file_path = "./../../data/day2.txt"
+    total_addition, total_power = possibles_games(file_path)
+    print(f"Total addition: {total_addition}")
+    print(f"Total power: {total_power}")
