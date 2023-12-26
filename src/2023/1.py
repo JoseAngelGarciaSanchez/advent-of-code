@@ -1,6 +1,7 @@
 """
 This is the solution of the first day of advent of code
 """
+import os
 import re
 
 
@@ -17,7 +18,7 @@ number_list = [
 ]
 
 
-def main(file_path: str) -> int:
+def number_extraction(file_path: str | os.PathLike) -> int:
     """
     First part of the day 1, 2023 AoC :)
 
@@ -31,7 +32,6 @@ def main(file_path: str) -> int:
     second_extraction = 0
 
     for line in input_file:
-        print(line)
         first_extraction += _string_to_first_last_num(line, only_digits=True)
         second_extraction += _string_to_first_last_num(line, only_digits=False)
 
@@ -62,6 +62,6 @@ def _string_to_first_last_num(input_line: str, only_digits: bool) -> int:
 
 if __name__ == "__main__":
     day1_file_path = "./../../data/day1.txt"
-    first_part, second_part = main(day1_file_path)
+    first_part, second_part = number_extraction(day1_file_path)
     print(f"The answer for the first part is: {first_part}")
     print(f"The answer for the second part is {second_part}")
