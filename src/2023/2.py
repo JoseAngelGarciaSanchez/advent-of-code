@@ -2,14 +2,14 @@ import os
 import re
 
 
-def possibles_games(input_path: str | os.PathLike) -> list[int]:
+def possibles_games(file_path: str | os.PathLike) -> list[int]:
     """
     AoC day 2, 2023
     ---------------
     Searching possible games that correspond to a condition
     Compute the sum of the game numbers and the sum of the power
     """
-    with open(input_path, "r") as file:
+    with open(file_path, "r") as file:
         games = file.readlines()
 
     games_input = [game.strip() for game in games]
